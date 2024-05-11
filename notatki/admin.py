@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-from blog.models import Post, Comment
+from notatki.models import Note, Comment
 
 
 # Register your models here.
 
-@admin.register(Post)
+@admin.register(Note)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'publish', 'status')
     list_filter = ('status', 'created', 'publish', 'author')

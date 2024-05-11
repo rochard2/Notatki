@@ -1,0 +1,18 @@
+{%  extends "notatki/base.html" %}
+
+{% block title %}{{ note.title }}{% endblock %}
+{% block content %}
+    <h1>{{ note.title }}</h1>
+    <p class="date">
+    Opublikowany {{ note.publish }} przez {{ note.author }}<br>
+    Ważność notatki:
+    {% if note.priority == "low" %}
+        <span style="color: green;">Mało ważna</span>
+    {% elif note.priority == "medium" %}
+        <span style="color: orange;">Średnio ważna</span>
+    {% else %}
+        <span style="color: red;">Bardzo ważna</span>
+    {% endif %}
+    </p>
+    {{ note.body|linebreaks }}
+{% endblock %}

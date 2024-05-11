@@ -9,13 +9,23 @@ class PublishedManager(models.Manager):
         return super(PublishedManager, self).get_queryset().filter(status='published')
 
 
-class Post(models.Model):
+class Note(models.Model):
     # menadzery obiketow
     objects = models.Manager()
     published = PublishedManager()
 
     title = models.CharField(max_length=250)
     body = models.TextField()
+
+    PRIORITY_CHOICES = (
+        ('high', "Bardzo ważne"),
+        ('medium', "Średnio ważne"),
+        ('low', "Mało ważne")
+    )
+
+    priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES,
+                                default='medium')
+
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -38,14 +48,14 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=[self.publish.year,
-                                                 self.publish.month,
-                                                 self.publish.day,
-                                                 self.slug])
+        return reverse('notatki:post_detail', args=[self.publish.year,
+                                                    self.publish.month,
+                                                    self.publish.day,
+                                                    self.slug])
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Note, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()

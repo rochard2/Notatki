@@ -1,0 +1,24 @@
+{% extends "notatki/base.html" %}
+
+{% block title %}Mój blog{% endblock %}
+
+{% block content %}
+
+    <h1>Mój blog</h1>
+    {% for note in notes %}
+        <h2><a href="{{ post.get_absolute_url }}">{{ note.title }}</a></h2>
+        <p class="date">
+            Opublikowany {{ note.publish }} przez {{ note.author }}<br>
+            Ważność notatki:
+            {% if note.priority == "low" %}
+                <span style="color: green;">Mało ważna</span>
+            {% elif note.priority == "medium" %}
+                <span style="color: orange;">Średnio ważna</span>
+            {% else %}
+                <span style="color: red;">Bardzo ważna</span>
+            {% endif %}
+        </p>
+        {{ note.body|truncatewords:30|linebreaks }}
+    {% endfor %}
+    {% include "notatki/pagination.html" with page=page_obj %}
+{% endblock  %}
