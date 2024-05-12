@@ -1,9 +1,9 @@
 from django import forms
 
-from notatki.models import Comment
+from notatki.models import Note
 
 
-class CommentForm(forms.ModelForm):
+class NoteForm(forms.ModelForm):
     class Meta:
-        model = Comment
-        fields = ('name', 'email', 'body')
+        model = Note
+        fields = {'title', 'body', 'priority', 'author', 'status'}
