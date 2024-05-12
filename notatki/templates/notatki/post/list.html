@@ -6,7 +6,7 @@
 
     <h1>Mój blog</h1>
     {% for note in notes %}
-        <h2><a href="{{ post.get_absolute_url }}">{{ note.title }}</a></h2>
+        <h2><a href="{{ note.get_absolute_url }}">{{ note.title }}</a></h2>
         <p class="date">
             Opublikowany {{ note.publish }} przez {{ note.author }}<br>
             Ważność notatki:

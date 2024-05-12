@@ -19,16 +19,4 @@ def note_detail(request, year, month, day, slug):
                              publish__month=month,
                              publish__day=day)
 
-    comments = note.comments.filter(active=True)
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.post = note
-            comment.save()
-
-    comment_form = CommentForm()
-
-    return render(request, 'notatki/post/detail.html', {'note': note,
-                                                     'comments': comments,
-                                                     'comment_form': comment_form})
+    return render(request, 'notatki/post/detail.html', {'note': note})
