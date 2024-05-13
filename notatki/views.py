@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils.text import slugify
 from django.views.generic import ListView
 
 from notatki.models import Note
@@ -30,6 +31,7 @@ def create_note(request):
         if form.is_valid():
             note = form.save(commit=False)
             note.author = User.objects.get(id=1)
+            note.slug = slugify(form.cleaned_data['title'])
             note.save()
 
             return render(request, 'notatki/create_temp.html', {'form': form})
