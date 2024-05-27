@@ -1,0 +1,87 @@
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.note-main {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    background-color: #f4f4f9;
+}
+
+.container {
+    flex: 3;
+    margin-right: 20px;
+}
+
+.note {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.note:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.note h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.low-priority {
+    color: green;
+}
+
+.medium-priority {
+    color: orange;
+}
+
+.high-priority {
+    color: red;
+}
+
+.note-text {
+    background-color: #e0e0e0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.note-text p {
+    margin-bottom: 10px;
+}
+
+.content {
+    font-weight: 400;
+    color: #666;
+}
+
+
+.edit {
+    background-color: #00d2ff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit:hover {
+    background-color: #007bff;
+}
