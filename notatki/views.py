@@ -9,7 +9,7 @@ from notatki.forms import NoteForm
 
 
 class NoteListView(ListView):
-    queryset = Note.published.all()
+    queryset = Note.published.all().filter(priority__in=('high', 'medium', 'low')).order_by('priority')
     context_object_name = 'notes'
     paginate_by = 3
     template_name = 'notatki/post/list.html'
