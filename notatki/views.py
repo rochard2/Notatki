@@ -34,9 +34,9 @@ def create_note(request):
             note.slug = slugify(form.cleaned_data['title'])
             note.save()
 
-            return render(request, 'notatki/create_temp.html', {'form': form})
+            return render(request, 'notatki/create.html', {'form': form})
 
     else:
         form = NoteForm()
 
-    return render(request, 'notatki/create_temp.html', {'form': form})
+    return render(request, 'notatki/create.html', {'form': form})
