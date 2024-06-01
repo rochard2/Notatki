@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.utils.text import slugify
 from django.views.generic import ListView
 
@@ -40,3 +41,21 @@ def create_note(request):
         form = NoteForm()
 
     return render(request, 'notatki/create.html', {'form': form})
+
+
+def edit_note(request, year, month, day, slug):
+    note = get_object_or_404(Note, slug=slug,
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
+    if request.method == 'POST':
+        form = NoteForm(request.POST, instance=note)
+
+        if form.is_valid():
+            form.save()
+            return redirect(f'/{year}/{month}/{day}/{slug}')
+
+    else:
+        form = NoteForm(instance=note)
+
+    return render(request, 'notatki/edit.html', {'form': form, 'note': note})
