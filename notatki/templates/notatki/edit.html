@@ -1,9 +1,26 @@
 {% extends "notatki/base.html" %}
 {% block content %}
-    <form method="post">
+       <div class="main-container">
+    <div class="navbar">
+        <ul>
+            <a href="/"><li>Strona Główna  <i class='bx bx-home'></i></li></a>
+            <a href="create"><li>Utwórz Notatkę <i class='bx bxs-comment-add'></i></li></a>
+        </ul>
+    </div>
+           <div class="note-main">
+        <div class="container">
+            <div class="note">
+                <h1>Edycja notatki</h1>
+
+                    <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
         <br>
     <button type="submit">Edytuj notatkę</button>
     </form>
+            </div>
+        </div>
+    </div>
+       </div>
+
 {% endblock %}

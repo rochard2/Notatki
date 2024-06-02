@@ -37,6 +37,7 @@ def create_note(request):
 
             return render(request, 'notatki/create.html', {'form': form})
 
+
     else:
         form = NoteForm()
 

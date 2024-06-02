@@ -14,8 +14,8 @@ body {
 
 .navbar {
     background-color: lightgrey;
-    width: 120px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     display: flex;
