@@ -18,9 +18,9 @@
             <p class="date">
                 Opublikowany {{ note.publish }} przez {{ note.author }}<br>
                 Ważność notatki:
-                {% if note.priority == "low" %}
+                {% if note.priority == "3_low" %}
                     <span style="color: green;">Mało ważna</span>
-                {% elif note.priority == "medium" %}
+                {% elif note.priority == "2_medium" %}
                     <span style="color: orange;">Średnio ważna</span>
                 {% else %}
                     <span style="color: red;">Bardzo ważna</span>

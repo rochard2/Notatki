@@ -18,9 +18,9 @@ class Note(models.Model):
     body = models.TextField()
 
     PRIORITY_CHOICES = (
-        ('high', "Bardzo ważne"),
-        ('medium', "Średnio ważne"),
-        ('low', "Mało ważne")
+        ('1_high', "Bardzo ważne"),
+        ('2_medium', "Średnio ważne"),
+        ('3_low', "Mało ważne")
     )
 
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES,
