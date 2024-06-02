@@ -13,9 +13,11 @@
         <div class="container">
             <div class="note">
                 <h1>{{ note.title }}</h1>
-                <a href="" class="a-edit"><button class="edit">Edit</button></a>
+                <a href="" class="a-edit"><button class="edit">Edytuj</button></a>
+                <a href="" class="a-delete"><button class="edit">Usuń</button></a>
                 <script>
                     document.querySelector('.a-edit').href = window.location.href + "edit";
+                    document.querySelector('.a-delete').href = window.location.href + "delete";
                 </script>
                 <p class="date">
                     Opublikowany {{ note.publish }} przez {{ note.author }}<br>

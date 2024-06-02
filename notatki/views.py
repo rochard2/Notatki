@@ -60,3 +60,12 @@ def edit_note(request, year, month, day, slug):
         form = NoteForm(instance=note)
 
     return render(request, 'notatki/edit.html', {'form': form, 'note': note})
+
+def delete_note(request, year, month, day, slug):
+    note = get_object_or_404(Note, slug=slug,
+                             publish__year=year,
+                             publish__month=month,
+                             publish__day=day)
+
+    note.delete()
+    return redirect('/')

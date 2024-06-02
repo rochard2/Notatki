@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:year>/<int:month>/<int:day>/<slug:slug>/', views.note_detail, name='note_detail'),
     path('create/', views.create_note, name='create'),
     path('<int:year>/<int:month>/<int:day>/<slug:slug>/edit', views.edit_note, name='edit'),
+    path('<int:year>/<int:month>/<int:day>/<slug:slug>/delete', views.delete_note, name='delete'),
 ]
