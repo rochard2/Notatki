@@ -2,6 +2,14 @@
 
 {% block title %}Mój blog{% endblock %}
 {% block content %}
+    <div class="main-container">
+    <div class="navbar">
+        <ul>
+            <a href="list.html"><li>Home  <i class='bx bx-home'></i></li></a>
+            <a href="create"><li>Create <i class='bx bxs-comment-add'></i></li></a>
+            <a href="edit"> <li>Edit <i class='bx bxs-comment-edit'></i></li></a>
+        </ul>
+    </div>
 <div class="note-main">
     <div class="container">
         <div class="notes">
@@ -21,9 +29,8 @@
             {{ note.body|truncatewords:30|linebreaks }}
             {% endfor %}
         </div>
-    </div>
-</div>
-
-{% include "notatki/pagination.html" with page=page_obj %}
+    {% include "notatki/pagination.html" with page=page_obj %}
 {% endblock %}
     {% include "notatki/pagination.html" with page=page_obj %}
+    </div>
+</div>

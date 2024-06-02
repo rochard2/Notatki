@@ -72,7 +72,7 @@
 
 
 .edit {
-    background-color: #00d2ff;
+    background-color: red;
     color: white;
     padding: 15px 30px;
     border: none;
@@ -80,6 +80,8 @@
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    position: relative;
+    top: 10%;
 }
 
 .edit:hover {
